@@ -5,8 +5,8 @@ _Proyecto web desarrollado en Spring Boot + Angular + SQL y basado en una galerÃ
 
 ### Datos de Acceso ğŸ“‹
 
-_admin - admin_
-_usuario - 1234_
+*_admin - admin_
+*_usuario - 1234_
 
 ```
 Se pueden registrar nuevos usuarios
