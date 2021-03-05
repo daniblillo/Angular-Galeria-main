@@ -2677,3 +2677,15 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-05 12:03:03.149
 !MESSAGE executing callback sts4.classpath.cyiDxZcl SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-05 14:21:22.853
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.cyiDxZcl
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-05 14:21:22.855
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.cyiDxZcl
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-05 14:21:22.855
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-03-05 14:21:22.856
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.cyiDxZcl => OK

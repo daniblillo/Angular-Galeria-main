@@ -5,7 +5,7 @@
     SI NO LO ESTÁ-->
 <div class="container text-center">
     <div *ngIf="isLogged; else loggedOut">
-        <h2>Bienvenido {{nombreUsuario}}</h2>
+        <h2>¡Hola {{nombreUsuario}}!</h2>
     </div>
     <ng-template #loggedOut>
         <h2>No has iniciado sesión</h2>

@@ -14,8 +14,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarColor02">
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar...">
-      <button class="btn btn-dark" type="button">Buscar</button>
+      <input [(ngModel)]="search" class="form-control mr-sm-2" type="search" placeholder="Buscar...">
+      <button class="btn btn-dark" (click)="showSearchResults($event)" type="button">Buscar</button>
     </form>
     <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Descargar PDF</button>
   </div>

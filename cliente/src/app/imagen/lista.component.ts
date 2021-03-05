@@ -20,6 +20,8 @@ import html2canvas from 'html2canvas';//NO FUNCIONA
 export class ListaComponent implements OnInit {
 
   imagenes: Imagen[] = [];
+  search: string;
+  imagenBusqueda: Imagen[] = [];
 
 /**
  * CONSTRUCTOR
@@ -31,7 +33,7 @@ export class ListaComponent implements OnInit {
     private imagenService: ImagenService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal
-  ) { }
+  ) { this.downloadPDF(); }
 
 /**
  * LIST
@@ -77,7 +79,7 @@ export class ListaComponent implements OnInit {
   /**
    * DESCARGAR PDF
    */
-  downloadPDF() {
+  /**downloadPDF() {
     const DATA = document.getElementById('htmlData');
     const doc = new jsPDF('p', 'pt', 'a4');
     const options = {
@@ -98,6 +100,55 @@ export class ListaComponent implements OnInit {
     }).then((docResult) => {
       docResult.save(`${new Date().toISOString()}galeria.pdf`);
     });
+  }*/
+
+  /**downloadPDF() {
+    // Extraemos el
+    const DATA = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('../../result-pdf');
+
+      // Add image Canvas to PDF
+      canvas.ownerDocument.createElement('canvas');
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
+    });
+  }*/
+  downloadPDF() {
+    const DATA = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('../../result-pdf');
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
+    });
   }
 
   /**
@@ -107,12 +158,18 @@ export class ListaComponent implements OnInit {
   * @return {void}
   */
  public showSearchResults(event: any): void {
-  if (event.target.value.length >= 3) {
-    this.searching = true;
-  } else {
-    this.searching = false;
-  }
+  //if (event.target.value.length >= 0) {
+    //this.searching = true;
+    for(let i = 0; i < this.imagenes.length; i++){
+      if(this.imagenes[i].name.includes(this.search)){
+        this.imagenBusqueda.push(this.imagenes[i]);
+        console.log(this.imagenBusqueda);
+      }
+    }
+  } //else {
+    //this.searching = false;
+  //}
 }
 
-public searching: boolean = false;
-}
+//public searching: boolean = false;
+//}
