@@ -86,7 +86,7 @@ export class ListaComponent implements OnInit {
     };
     html2canvas(DATA, options).then((canvas) => {
 
-      const img = canvas.toDataURL('image/PNG');
+      const img = canvas.toDataURL('../../result-pdf');
 
       const bufferX = 15;
       const bufferY = 15;
@@ -100,4 +100,19 @@ export class ListaComponent implements OnInit {
     });
   }
 
+  /**
+  * SEARCH RESULTS
+  * @function showSearchResults
+  * @param {any} event
+  * @return {void}
+  */
+ public showSearchResults(event: any): void {
+  if (event.target.value.length >= 3) {
+    this.searching = true;
+  } else {
+    this.searching = false;
+  }
+}
+
+public searching: boolean = false;
 }

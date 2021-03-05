@@ -24,6 +24,9 @@ import { MenuComponent } from './menu/menu.component';
 import { IndexComponent } from './index/index.component';
 import { ToastrModule } from 'ngx-toastr';
 
+import { SearchPipe } from './search.pipe';
+
+
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
   direction: 'horizontal',
@@ -42,7 +45,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     LoginComponent,
     RegistroComponent,
     MenuComponent,
-    IndexComponent
+    IndexComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
