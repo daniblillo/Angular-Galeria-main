@@ -1,0 +1,5 @@
+package com.tutorial.cloudinaryrest.mapping;
+
+public class WebConfig {
+
+}

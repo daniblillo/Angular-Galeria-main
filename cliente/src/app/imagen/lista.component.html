@@ -1,0 +1,64 @@
+<!-- MENÚ -->
+<app-menu></app-menu>
+
+<!-- ANIMACIÓN -->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Eliminando imagen...</p>
+</ngx-spinner>
+
+<!-- NAVEGACIÓN
+      BUSCADOR  
+      DESCARGAR PDF
+    
+      CATEGORÍAS-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar...">
+      <button class="btn btn-dark" type="submit">Buscar</button>
+    </form>
+    <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Descargar PDF</button>
+  </div>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary disabled">Cristo</button>
+      </div>
+    </li>
+    <li class="nav-item active">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary disabled">Virgen</button>
+      </div>
+    </li>
+    <li class="nav-item active">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary disabled">San Juan</button>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<!-- TARJETA DE IMÁGENES -->
+<div class="row">
+  <div class="col-md-4" *ngFor="let imagen of imagenes; index as i">
+    <div class="card mb-3 animated zoomIn">
+      <h4 class="card-header">{{imagen.name}}</h4>
+      <div class="card-body">
+        <h5 class="card-title"><b>ID: </b>{{imagen.imagenId}}</h5>
+      </div>
+      <div class="card-body text-center">
+        <img style="height: 200px; width: 100%; display: block;" src="{{imagen.imagenUrl}}" alt="Card image">
+      </div>
+
+      <div class="card-body d-flex justify-content-between">
+        <button class="btn btn-outline-primary" (click)="abrirModal(i)"><i class="far fa-eye"></i> Ampliar</button>
+        <button class="btn btn-outline-danger" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i>
+          Eliminar</button>
+      </div>
+      <div class="card-footer text-center">
+        &copy; Por DanielGV
+      </div>
+    </div>
+
+  </div>
+</div>
