@@ -14,8 +14,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarColor02">
     <form class="form-inline my-2 my-lg-0">
-      <input [(ngModel)]="search" class="form-control mr-sm-2" type="search" placeholder="Buscar...">
-      <button class="btn btn-dark" (click)="showSearchResults($event)" type="button">Buscar</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar...">
+      <button class="btn btn-dark" (click)="buscar('search')" type="button">Buscar</button>
     </form>
     <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Descargar PDF</button>
   </div>
@@ -46,7 +46,7 @@
       <div class="card-body">
         <h5 class="card-title"><b>ID: </b>{{imagen.imagenId}}</h5>
       </div>
-      <div class="card-body text-center">
+      <div class="card-body text-center" id="content">
         <img style="height: 200px; width: 100%; display: block;" src="{{imagen.imagenUrl}}" alt="Card image">
       </div>
 

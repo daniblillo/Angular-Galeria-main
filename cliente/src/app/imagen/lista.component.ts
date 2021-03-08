@@ -33,7 +33,7 @@ export class ListaComponent implements OnInit {
     private imagenService: ImagenService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal
-  ) { this.downloadPDF(); }
+  ) { /*this.downloadPDF();*/ }
 
 /**
  * LIST
@@ -41,6 +41,21 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
     this.cargarImagenes();
   }
+
+  /**
+   * BUSCAR
+   * @param name x nombre
+   */
+  buscar(name : String):void{
+    this.imagenService.busca(name).subscribe(
+      data => {
+        this.imagenes = data;
+      }
+    );
+  }
+  /**
+   * CARGA
+   */
   cargarImagenes(): void {
     this.imagenService.list().subscribe(
       data => {
@@ -128,7 +143,7 @@ export class ListaComponent implements OnInit {
     });
   }*/
   downloadPDF() {
-    const DATA = document.getElementById('htmlData');
+    const DATA = document.getElementById('content');
     const doc = new jsPDF('p', 'pt', 'a4');
     const options = {
       background: 'white',
@@ -166,7 +181,9 @@ export class ListaComponent implements OnInit {
         console.log(this.imagenBusqueda);
       }
     }
-  } //else {
+  } 
+
+  //else {
     //this.searching = false;
   //}
 }

@@ -19,10 +19,6 @@ public class ImagenService {
     public List<Imagen> list(){
         return imagenRepository.findByOrderById();
     }
-    
-    public List<Imagen> search(){
-        return imagenRepository.findByOrderById();
-    }
 
     public Optional<Imagen> getOne(int id){
         return imagenRepository.findById(id);

@@ -2,13 +2,11 @@ package com.tutorial.cloudinaryrest.repository;
 
 import com.tutorial.cloudinaryrest.entity.Imagen;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface ImagenRepository extends JpaRepository<Imagen, Integer> {
-	@Query("SELECT i FROM imagen i WHERE i.imagen_id LIKE %?%")
-	List<Imagen> findByOrderById();
+    List<Imagen> findByOrderById();
 }

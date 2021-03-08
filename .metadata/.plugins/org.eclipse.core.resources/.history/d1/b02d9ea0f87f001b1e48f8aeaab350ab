@@ -32,12 +32,6 @@ public class MainController {
         List<Imagen> list = imagenService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
-    @GetMapping("/search")
-    public ResponseEntity<List<Imagen>> search(){
-        List<Imagen> list = imagenService.search();
-        return new ResponseEntity(list, HttpStatus.OK);
-    }
 
     @PostMapping("/upload")
     public ResponseEntity<?> upload(@RequestParam MultipartFile multipartFile)throws IOException {
